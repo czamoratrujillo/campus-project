@@ -1,4 +1,4 @@
-# Ubuntu 20 AMI for EC2 instance
+## Ubuntu 20 AMI for EC2 instance
 data "aws_ami" "ubuntu" {
     most_recent = true
 filter {
@@ -11,7 +11,8 @@ filter {
     }
 owners = ["099720109477"] # Canonical
 }
-# provision to us-east-2 region
+
+## Provision us-east-1 region
 provider "aws" {
   region  = "us-east-1"
 }
