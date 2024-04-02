@@ -13,7 +13,7 @@ owners = ["099720109477"] # Canonical
 }
 # provision to us-east-2 region
 provider "aws" {
-  region  = "us-east-2"
+  region  = "us-east-1"
 }
 resource "aws_instance" "demo_server" {
   ami           = data.aws_ami.ubuntu.id
