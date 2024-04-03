@@ -3,7 +3,17 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-## Ubuntu 20 AMI for EC2 instance
+## EC2
+resource "aws_instance" "demo_server" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+  key_name      = "app-ssh-key"
+tags = {
+    Name = var.ec2_name
+  }
+}
+
+## Ubuntu AMI
 data "aws_ami" "ubuntu" {
     most_recent = true
 filter {
@@ -14,14 +24,4 @@ filter {
         name   = "virtualization-type"
         values = ["hvm"]
     }
-}
-
-## EC2
-resource "aws_instance" "demo_server" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-  key_name      = "app-ssh-key"
-tags = {
-    Name = var.ec2_name
-  }
 }
