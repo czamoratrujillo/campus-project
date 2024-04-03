@@ -1,3 +1,8 @@
+## Provision us-east-1 region
+provider "aws" {
+  region  = "us-east-1"
+}
+
 ## Ubuntu 20 AMI for EC2 instance
 data "aws_ami" "ubuntu" {
     most_recent = true
@@ -10,11 +15,6 @@ filter {
         values = ["hvm"]
     }
 owners = ["099720109477"] # Canonical
-}
-
-## Provision us-east-1 region
-provider "aws" {
-  region  = "us-east-1"
 }
 
 ## EC2
