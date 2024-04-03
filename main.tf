@@ -16,6 +16,8 @@ owners = ["099720109477"] # Canonical
 provider "aws" {
   region  = "us-east-1"
 }
+
+## EC2
 resource "aws_instance" "demo_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
